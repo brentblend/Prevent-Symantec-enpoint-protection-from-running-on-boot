@@ -1,0 +1,71 @@
+if (test-path "HKLM:\system\ControlSet001\Services\SepMasterService")
+
+if (test-path "HKLM:\system\ControlSet001\Services\SepMasterService\start"){
+
+$val = Get-ItemProperty -Path HKLM:\system\ControlSet001\Services\SepMasterService -Name "Start"
+
+if($val.Start -ne 3){}
+
+set-itemproperty -Path HKLM:\system\ControlSet001\Services\SepMasterService -Name "Start" -value 3
+
+}else{echo "No Key"}
+
+if (HKLM:\SOFTWARE\WFC\SEPstatus)
+
+else
+
+New-ItemProperty -Path "HKLM:\SOFTWARE\WFC\" -Name SEPstatus -Value Service
+
+
+New-ItemProperty -Path "HKLM:\SOFTWARE\WFC\SEPstatus" 
+
+$SEP = Get-Service|where Name -eq "SEPMasterService"
+
+if ($SEP.Status -ieq "Running")
+
+Set-Itemproperty -path 'HKLM:\SOFTWARE\WFC\SEPstatus' -Name 'Service' -value Running
+
+elseif ($SEP.Status -ieq "Stopped")
+
+Set-Itemproperty -path 'HKLM:\SOFTWARE\WFC\SEPstatus' -Name 'Service' -value Stopped
+
+else 
+ 
+Set-Itemproperty -path 'HKLM:\SOFTWARE\WFC\SEPstatus' -Name 'Service' -value kthxnoSEPbye
+
+if (test-path "HKLM:\system\ControlSet001\Services\SepMasterService")
+
+if (test-path "HKLM:\system\ControlSet001\Services\SepMasterService\start"){
+
+$val = Get-ItemProperty -Path HKLM:\system\ControlSet001\Services\SepMasterService -Name "Start"
+
+if($val.Start -ne 3){}
+
+set-itemproperty -Path HKLM:\system\ControlSet001\Services\SepMasterService -Name "Start" -value 3
+
+}else{echo "No Key"}
+
+
+if (HKLM:\SOFTWARE\WFC\SEPstatus)
+
+
+else
+
+New-ItemProperty -Path "HKLM:\SOFTWARE\WFC\" -Name SEPstatus -Value Service
+
+
+New-ItemProperty -Path "HKLM:\SOFTWARE\WFC\SEPstatus" 
+
+$SEP = Get-Service|where Name -eq "SEPMasterService"
+
+if ($SEP.Status -ieq "Running")
+
+Set-Itemproperty -path 'HKLM:\SOFTWARE\WFC\SEPstatus' -Name 'Service' -value Running
+
+elseif ($SEP.Status -ieq "Stopped")
+
+Set-Itemproperty -path 'HKLM:\SOFTWARE\WFC\SEPstatus' -Name 'Service' -value Stopped
+
+else 
+ 
+Set-Itemproperty -path 'HKLM:\SOFTWARE\WFC\SEPstatus' -Name 'Service' -value kthxnoSEPbye
